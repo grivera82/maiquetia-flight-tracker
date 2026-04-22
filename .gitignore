@@ -1,0 +1,16 @@
+# Sensitive files
+.env
+
+# Data archives (generated automatically)
+data/*.json
+
+# Logs
+fetcher.log
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if you ever add any)
+node_modules/

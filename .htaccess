@@ -1,0 +1,14 @@
+<FilesMatch "^\.env$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(fetcher\.js|config\.json|package\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

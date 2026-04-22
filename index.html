@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maiquetia Flight Tracker - Simón Bolívar International Airport (CCS)</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-top">
+        <div class="logo">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12h20"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
+            <path d="m22 12-5-9H7l-5 9"/>
+            <path d="M12 12v5"/>
+          </svg>
+          <div>
+            <h1>Maiquetia Flight Tracker</h1>
+            <p class="subtitle">Simón Bolívar International Airport (CCS / SVMI)</p>
+          </div>
+        </div>
+        <div class="header-info">
+          <div class="clock" id="clock">--:--:--</div>
+          <div class="date" id="currentDate">--</div>
+        </div>
+      </div>
+      <div class="header-controls">
+        <div class="date-picker-wrapper">
+          <label for="datePicker">Select Date:</label>
+          <input type="date" id="datePicker">
+        </div>
+        <div class="stats" id="stats">
+          <span class="stat"><strong id="arrCount">0</strong> Arrivals</span>
+          <span class="stat"><strong id="depCount">0</strong> Departures</span>
+          <span class="stat"><strong id="totalCount">0</strong> Total</span>
+        </div>
+        <div class="last-updated" id="lastUpdated">Last updated: --</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="arrivals">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          Arrivals
+        </button>
+        <button class="tab-btn" data-tab="departures">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          Departures
+        </button>
+        <button class="tab-btn" data-tab="history">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+          History
+        </button>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by flight number, airline, or city...">
+      </div>
+
+      <div class="tab-content active" id="arrivals">
+        <div class="table-wrapper">
+          <table class="flight-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Flight</th>
+                <th>Airline</th>
+                <th>Origin</th>
+                <th>Terminal</th>
+                <th>Gate</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="arrivalsBody">
+              <tr><td colspan="7" class="loading">Loading arrivals...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="departures">
+        <div class="table-wrapper">
+          <table class="flight-table">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Flight</th>
+                <th>Airline</th>
+                <th>Destination</th>
+                <th>Terminal</th>
+                <th>Gate</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="departuresBody">
+              <tr><td colspan="7" class="loading">Loading departures...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-content" id="history">
+        <div class="history-summary" id="historySummary"></div>
+        <div class="table-wrapper">
+          <table class="flight-table history-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Arrivals</th>
+                <th>Departures</th>
+                <th>Total Flights</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="4" class="loading">Loading history...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Data provided by AirLabs API. Updates every 15 minutes.</p>
+      <p>Website created by <a href="https://www.jgrivera.com" target="_blank" rel="noopener noreferrer">Jose Gabriel Rivera Gagliano</a></p>
+      <p>Maiquetia Flight Tracker &copy; <span id="year"></span></p>
+    </footer>
+  </div>
+
+  <script src="app.js?v=3"></script>
+</body>
+</html>

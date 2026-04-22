@@ -1,0 +1,11 @@
+{
+  "name": "maiquetia-flight-tracker",
+  "version": "1.0.0",
+  "description": "Flight tracker for Maiquetia International Airport (CCS)",
+  "main": "fetcher.js",
+  "scripts": {
+    "fetch": "node fetcher.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
